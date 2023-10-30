@@ -12,9 +12,9 @@ function App() {
 
   useEffect(() => {
     const fetchNumbers = async () => {
-      const { data } = await numberService.getNumbers()
+      const numbers = await numberService.getNumbers()
       setNumbers([...Array(1000).keys()].map((x, index) => {
-        const existingNumber = data.find(f => f.number === index)
+        const existingNumber = numbers.find(f => f.number === index)
         if (existingNumber) return existingNumber
         return {
           number: index,

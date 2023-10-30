@@ -10,9 +10,9 @@ numbersRouter.get('/', async (req, res, next) => {
   }
 })
 
-numbersRouter.get('/:id', async (req, res, next) => {
+numbersRouter.get('/:number', async (req, res, next) => {
   try {
-    const result = await NumberModel.model.findById(req.params.id);
+    const result = await NumberModel.model.findOne({number: req.params.number});
     if (!result) return res.status(404).end()
     res.status(200).json(result)
   } catch (error) {
