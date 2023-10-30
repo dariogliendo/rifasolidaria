@@ -17,9 +17,15 @@ const NumberDetail = () => {
 
   return (
     <div>
-      <span>{numberData.number}</span>
-      <span>{numberData.status}</span>
-    </div>
+      {
+        numberData 
+        ? <>
+          <span>{numberData.number}</span>
+          <span>{numberData.status}</span>
+          </>
+        : <span>Este número aún no fue comprado</span>
+      }
+    </div >
   )
 }
 
