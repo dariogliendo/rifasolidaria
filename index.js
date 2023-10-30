@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const config = require('./utils/config')
 const numbersRouter = require('./controllers/numbers')
 const app = express()
+const cors = require('cors')
 
 console.log('connecting to', config.MONGODB_URI)
 mongoose.connect(config.MONGODB_URI)
@@ -13,6 +14,7 @@ mongoose.connect(config.MONGODB_URI)
     console.log('error connecting to MongoDB:', error.message)
   })
 
+app.use(cors())
 app.use(express.json())
 
 /// Routers

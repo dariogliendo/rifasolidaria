@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+  font-family: Tahoma;
+}
+
+.numberList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 0;
+}
+
+.numberList .numberContainer {
+  padding: 12px;
+  border: 2px solid;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.numberList .numberContainer a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.numberList .numberContainer span {
+  font-size: 0.8em;
+}
+
+.numberList .numberContainer.available {
+  background-color: rgb(198, 254, 198);
+  color: green;
+}
+.numberList .numberContainer.available:hover {
+  background-color: rgb(120, 255, 120);
+}
+
+.numberList .numberContainer.sold {
+  background-color: rgb(220, 220, 220);
+  color: rgb(0, 0, 0);
+}
+.numberList .numberContainer.sold:hover {
+  background-color: rgb(140, 140, 140);
+  cursor: not-allowed;
+  color: rgb(0, 0, 0);
+}
+
+.numberList .numberContainer.pending {
+  background-color: rgb(253, 254, 198);
+  color: rgb(128, 111, 0);
+}
+.numberList .numberContainer.pending:hover {
+  background-color: rgb(249, 255, 74);
+}
+
+@media screen and (max-width: 780px) {
+  .numberList {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 480px) {
+  .numberList {
+    grid-template-columns: 1fr 1fr;
+  }
+}

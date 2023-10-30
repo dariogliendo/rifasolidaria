@@ -22,7 +22,7 @@ numbersRouter.get('/:id', async (req, res, next) => {
 
 numbersRouter.post('/', async (req, res, next) => {
   try {
-    const existing = NumberModel.model.findOne({number: req.body.number})
+    const existing = await NumberModel.model.findOne({number: req.body.number})
     if (existing) return res.status(400).send('The number has already been sold')
     const newNumber = new NumberModel.model(req.body)
     await newNumber.save()
