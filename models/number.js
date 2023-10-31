@@ -12,6 +12,8 @@ exports.schema = new mongoose.Schema({
     default: 'AVAILABLE'
   },
   soldTo: String,
+  telephone: String,
+  email: String,
 })
 
 exports.model = mongoose.connection.model('numbers', exports.schema)
