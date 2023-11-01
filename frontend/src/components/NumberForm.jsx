@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import numberService from '../services/number.service'
+import axios from 'axios'
 
 const NumberForm = ({ number, setNumberData }) => {
   const [name, setName] = useState('')
@@ -8,8 +9,6 @@ const NumberForm = ({ number, setNumberData }) => {
 
   const confirm = async (e) => {
     e.preventDefault()
-    const link = 'https://wa.me/3515221472?text=' + encodeURIComponent(`Hola, me gustaría comprar el número *${number}* de la rifa.\n*Nombre:* ${name}\n*Teléfono:* ${telephone}\n*Correo electrónico:* ${email}`)
-
     const data = await numberService.reserve(number, name, telephone, email)
     setNumberData(data)
     window.open(link, "_blank")
@@ -32,7 +31,7 @@ const NumberForm = ({ number, setNumberData }) => {
         </div>
         <div className="status">
           {
-            !(name && (telephone || email)) 
+            !(name && (telephone || email))
               ? <span>Por favor complete la información solicitada</span>
               : ''
           }

@@ -15,11 +15,12 @@ const TakenNumber = ({ numberData }) => {
       }
       {numberData?.status === 'PENDING' &&
         <div style={{display: "flex", flexDirection: 'column', gap: 20}}>
-          <strong>Este número está pendiente de pago. Si sos el comprador, envianos el comprobante por Whatsapp junto con tus datos.</strong>
-          <span>Si no pudiste enviar el mensaje anteriormente, aquí lo podés copiar:</span>
-          <textarea rows="5" readOnly={true} onClick={copy} value={`Hola, me gustaría comprar el número *${numberData.number}* de la rifa.\n*Nombre:* ${numberData.soldTo}\n*Teléfono:* ${numberData.telephone}\n*Correo electrónico:* ${numberData.email}`}>
-          </textarea>
-          <span>En breve vamos a confirmar tu compra :)</span>
+          <span>Ya se reservó tu número, ya podés hacer la transferencia a</span>
+          <div className="alias">
+            <span>FERNY.LUCOVACH.UALA</span>
+          </div>
+          <span>Muchas gracias por tu aporte 💖</span>
+          <span>Recordá que el sorteo se hace el día 29 de Noviembre por Loteria de Córdoba</span>
         </div>
       }
     </>
